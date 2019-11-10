@@ -1,0 +1,76 @@
+; CDR variables
+same => n,Verbose("$"{CDR(clid)}=${CDR(clid)})  ; clid - Caller ID.
+same => n,Verbose("$"{CDR(lastdata)}=${CDR(lastdata)}) ; - Last application arguments.
+same => n,Verbose("$"{CDR(disposition)}=${CDR(disposition)}) ; - The final state of the CDR. 0 - NO ANSWER, 1 - NO ANSWER (NULL record), 2 - FAILED, 4 - BUSY, 8 - ANSWERED, 16 - CONGESTION
+same => n,Verbose("$"{CDR(src)}=${CDR(src)}) ; - Source.
+same => n,Verbose("$"{CDR(start)}=${CDR(start)}) ; - Time the call started.
+same => n,Verbose("$"{CDR(dst)}=${CDR(dst)}) ; - Destination.
+same => n,Verbose("$"{CDR(answer)}=${CDR(answer)}) ; - Time the call was answered.
+same => n,Verbose("$"{CDR(dcontext)}=${CDR(dcontext)}) ; - Destination context.
+same => n,Verbose("$"{CDR(end)}=${CDR(end)}) ; - Time the call ended.
+same => n,Verbose("$"{CDR(uniqueid)}=${CDR(uniqueid)}) ; - The channel's unique id.
+same => n,Verbose("$"{CDR(dstchannel)}=${CDR(dstchannel)}) ; - Destination channel.
+same => n,Verbose("$"{CDR(duration)}=${CDR(duration)}) ; - Duration of the call.
+same => n,Verbose("$"{CDR(userfield)}=${CDR(userfield)}) ; - The channel's user specified field.
+same => n,Verbose("$"{CDR(lastapp)}=${CDR(lastapp)}) ; - Last application.
+same => n,Verbose("$"{CDR(billsec)}=${CDR(billsec)}) ; - Duration of the call once it was answered.
+same => n,Verbose("$"{CDR(channel)}=${CDR(channel)}) ; - Channel name.
+same => n,Verbose("$"{CDR(sequence)}=${CDR(sequence)}) ; - CDR sequence number.
+
+; Dial() channel variables
+same => n,Verbose("$"{DIALEDTIME}=${DIALEDTIME}) ; - This is the time from dialing a channel until when it is disconnected.
+same => n,Verbose("$"{DIALEDTIME_MS}=${DIALEDTIME_MS}) ; - This is the milliseconds version of the DIALEDTIME variable.
+same => n,Verbose("$"{ANSWEREDTIME}=${ANSWEREDTIME}) ; - This is the amount of time for actual call.
+same => n,Verbose("$"{ANSWEREDTIME_MS}=${ANSWEREDTIME_MS}) ; - This is the milliseconds version of the ANSWEREDTIME variable.
+same => n,Verbose("$"{RINGTIME}=${RINGTIME}) ; - This is the time from creating the channel to the first RINGING event received. Empty if there was no ring.
+same => n,Verbose("$"{RINGTIME_MS}=${RINGTIME_MS}) ; - This is the milliseconds version of the RINGTIME variable.
+same => n,Verbose("$"{PROGRESSTIME}=${PROGRESSTIME}) ; - This is the time from creating the channel to the first PROGRESS event received. Empty if there was no such event.
+same => n,Verbose("$"{PROGRESSTIME_MS}=${PROGRESSTIME_MS}) ; - This is the milliseconds version of the PROGRESSTIME variable.
+same => n,Verbose("$"{DIALEDPEERNAME}=${DIALEDPEERNAME}) ; - The name of the outbound channel that answered the call.
+same => n,Verbose("$"{DIALEDPEERNUMBER}=${DIALEDPEERNUMBER}) ; - The number that was dialed for the answered outbound channel.
+same => n,Verbose("$"{FORWARDERNAME}=${FORWARDERNAME}) ; - If a call forward occurred, the name of the forwarded channel.
+same => n,Verbose("$"{DIALSTATUS}=${DIALSTATUS}) ; - This is the status of the call: CHANUNAVAIL, CONGESTION, NOANSWER, BUSY, ANSWER, CANCEL, DONTCALL, TORTURE, INVALIDARGS
+
+; General channel variables
+same => n,Verbose("$"{BLINDTRANSFER}=${BLINDTRANSFER}) ; - The name of the channel on the other side of a blind transfer
+same => n,Verbose("$"{BRIDGEPEER}=${BRIDGEPEER}) ; - Bridged peer
+same => n,Verbose("$"{BRIDGEPVTCALLID}=${BRIDGEPVTCALLID}) ; - Bridged peer PVT call ID (SIP Call ID if a SIP call)
+same => n,Verbose("$"{CALLERID(ani)}=${CALLERID(ani)}) ; * - Caller ANI (PRI channels)
+same => n,Verbose("$"{CALLERID(ani2)}=${CALLERID(ani2)}) ; * - ANI2 (Info digits) also called Originating line information or OLI
+same => n,Verbose("$"{CALLERID(all)}=${CALLERID(all)}) ; - Caller ID
+same => n,Verbose("$"{CALLERID(dnid)}=${CALLERID(dnid)}) ; * - Dialed Number Identifier
+same => n,Verbose("$"{CALLERID(name)}=${CALLERID(name)}) ; - Caller ID Name only
+same => n,Verbose("$"{CALLERID(num)}=${CALLERID(num)}) ; - Caller ID Number only
+same => n,Verbose("$"{CALLERID(rdnis)}=${CALLERID(rdnis)}) ; * - Redirected Dial Number ID Service
+same => n,Verbose("$"{CALLINGANI2}=${CALLINGANI2}) ; * - Caller ANI2 (PRI channels)
+same => n,Verbose("$"{CALLINGPRES}=${CALLINGPRES}) ; * - Caller ID presentation for incoming calls (PRI channels)
+same => n,Verbose("$"{CALLINGTNS}=${CALLINGTNS}) ; * - Transit Network Selector (PRI channels)
+same => n,Verbose("$"{CALLINGTON}=${CALLINGTON}) ; * - Caller Type of Number (PRI channels)
+same => n,Verbose("$"{CHANNEL}=${CHANNEL}) ; * - Current channel name
+same => n,Verbose("$"{CONTEXT}=${CONTEXT}) ; * - Current context
+same => n,Verbose("$"{DATETIME}=${DATETIME}) ; * - Current date time in the format: DDMMYYYY-HH:MM:SS (Deprecated; use ${STRFTIME(${EPOCH},,%d%m%Y-%H:%M:%S)})
+same => n,Verbose("$"{DB_RESULT}=${DB_RESULT}) ; - Result value of DB_EXISTS() dial plan function
+same => n,Verbose("$"{EPOCH}=${EPOCH}) ; * - Current unix style epoch
+same => n,Verbose("$"{EXTEN}=${EXTEN}) ; * - Current extension
+; same => n,Verbose("$"{ENV(VAR)}=${ENV(VAR)}) ; - Environmental variable VAR
+same => n,Verbose("$"{GOTO_ON_BLINDXFR}=${GOTO_ON_BLINDXFR}) ; - Transfer to the specified context/extension/priority after a blind transfer (use ^ characters in place of | to separate context/extension/priority when setting this variable from the dialplan)
+same => n,Verbose("$"{HANGUPCAUSE}=${HANGUPCAUSE}) ; * - Asterisk cause of hangup (inbound/outbound)
+same => n,Verbose("$"{HINT}=${HINT}) ; * - Channel hints for this extension
+same => n,Verbose("$"{HINTNAME}=${HINTNAME}) ; * - Suggested Caller*ID name for this extension
+same => n,Verbose("$"{INVALID_EXTEN}=${INVALID_EXTEN}) ; - The invalid called extension (used in the "i" extension)
+same => n,Verbose("$"{LANGUAGE}=${LANGUAGE}) ; * - Current language (Deprecated; use ${CHANNEL(language)})
+same => n,Verbose("$"{PRIORITY}=${PRIORITY}) ; * - Current priority in the dialplan
+same => n,Verbose("$"{PRIREDIRECTREASON}=${PRIREDIRECTREASON}) ;- Reason for redirect on PRI, if a call was directed
+same => n,Verbose("$"{TIMESTAMP}=${TIMESTAMP}) ; * - Current date time in the format: YYYYMMDD-HHMMSS (Deprecated; use ${STRFTIME(${EPOCH},,%Y%m%d-%H%M%S)})
+same => n,Verbose("$"{TRANSFER_CONTEXT}=${TRANSFER_CONTEXT}) ; - Context for transferred calls
+same => n,Verbose("$"{FORWARD_CONTEXT}=${FORWARD_CONTEXT}) ; - Context for forwarded calls
+same => n,Verbose("$"{DYNAMIC_PEERNAME}=${DYNAMIC_PEERNAME}) ; - The name of the channel on the other side when a dynamic feature is used (removed)
+same => n,Verbose("$"{DYNAMIC_FEATURENAME}=${DYNAMIC_FEATURENAME}) ; - The name of the last triggered dynamic feature
+same => n,Verbose("$"{DYNAMIC_WHO_ACTIVATED}=${DYNAMIC_WHO_ACTIVATED}) ; - Gives the channel name that activated the dynamic feature
+same => n,Verbose("$"{UNIQUEID}=${UNIQUEID}) ; * - Current call unique identifier
+same => n,Verbose("$"{SYSTEMNAME}=${SYSTEMNAME}) ; * - value of the systemname option of asterisk.conf
+same => n,Verbose("$"{ENTITYID}=${ENTITYID}) ; * - Global Entity ID set automatically, or from asterisk.conf
+same => n,Verbose("$"{AGIEXITONHANGUP}=${AGIEXITONHANGUP}) ; - set to 1 to force the behavior of a call to AGI to behave as it did in 1.4, where the AGI script would exit immediately on detecting a channel hangup
+same => n,Verbose("$"{CALENDAR_SUCCESS}=${CALENDAR_SUCCESS}) ; * - Status of the CALENDAR_WRITE function. Set to 1 if the function completed successfully; 0 otherwise.
+same => n,Verbose("$"{SIP_RECVADDR}=${SIP_RECVADDR}) ; * - the address a SIP MESSAGE request was received from
+same => n,Verbose("$"{VOICEMAIL_PLAYBACKSTATUS}=${VOICEMAIL_PLAYBACKSTATUS}) ; * - Status of the VoiceMailPlayMsg application. SUCCESS if the voicemail was played back successfully, {{FAILED} otherwise
